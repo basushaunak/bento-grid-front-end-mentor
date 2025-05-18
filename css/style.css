@@ -58,12 +58,16 @@ img{
 }
 
 .wrapper{
-    width: fit-content;
-    max-width: 1440;
+    width: 80%;
+    max-width: 1440px;
     margin-inline: auto;
+    margin-block: 2rem;
 }
 
 .card-grid{
+    margin-inline: auto;
+    border: 2px solid black;
+    width: fit-content;
     display: grid;
     gap: 1rem;
     background-color: var(--background-color);
@@ -162,19 +166,34 @@ img{
     font-weight: normal;
 }
 
+.attribution{
+    text-align: center;
+    margin-block-start: 2rem;
+}
+
 @media screen and (width > 900px){
     .card-grid {
         grid-template-areas:
         "seven one one four"
         "seven two three four"
         "eight two three four"
-        "eight six five five"
+        "eight six five five" ;
+    }
+    .card:nth-child(1){
+        max-width: none;
     }
     .card:nth-child(5){
         flex-direction: row;
+        max-width: none;
     }
     .card:nth-child(5) > * {
         flex:1;
     }
+    .card:nth-child(7) > .image{
+        align-self: center;
+    }
+    .card:nth-child(4) > .image{
+        width: 100%;
+        margin-inline-end: -35%;
 
 }
