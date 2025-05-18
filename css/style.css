@@ -61,7 +61,6 @@ img{
     width: fit-content;
     max-width: 1440;
     margin-inline: auto;
-    border: 2px red solid;
 }
 
 .card-grid{
@@ -81,7 +80,6 @@ img{
 
 .card{
     max-width: 350px;
-    border: 1px orange solid;
     overflow: clip;
     border-radius: 10px;
     padding: 1rem;
@@ -99,6 +97,10 @@ img{
 .card:nth-child(2){
     grid-area: two;
     background-color: var(--color-white);
+    .image{
+        order: -1;
+        width: 75%;
+    }
 }
 
 .card:nth-child(3){
@@ -158,4 +160,21 @@ img{
 .normal-font{
     font-size: var(--paragraph-font-size);
     font-weight: normal;
+}
+
+@media screen and (width > 900px){
+    .card-grid {
+        grid-template-areas:
+        "seven one one four"
+        "seven two three four"
+        "eight two three four"
+        "eight six five five"
+    }
+    .card:nth-child(5){
+        flex-direction: row;
+    }
+    .card:nth-child(5) > * {
+        flex:1;
+    }
+
 }
