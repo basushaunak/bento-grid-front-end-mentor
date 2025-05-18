@@ -11,6 +11,7 @@
     --color-yellow-500: hsl(39, 100%, 71%);
     --important-color: hsl(39, 100%, 71%);
     --emphasis-color: hsl(256, 67%, 59%);
+    --background-color: hsl(0, 0%, 96%);
 
     --color-white: hsl(0, 0%, 100%);
     --color-black: hsl(0, 0%, 7%);
@@ -22,31 +23,51 @@
 }
 
 html{
-    font-family: var(--font-family);
     font-size: var(--paragraph-font-size);
-    background-color: #f5f5f5;
+    font-family: var(--font-family);
+    /* line-height: 1.1em; */
 }
 
-img {
-    padding: 0;
-    margin: 0;
-    max-width: 100%;
+h1, h2, p{
+    line-height: 1.1em;
+    text-wrap: balance;
+}
+
+
+h1{
+    font-size: var(--h1-font-size);
+    text-align: center;
+}
+
+h2{
+    font-size: var(--h2-font-size);
+}
+
+img{
     display: block;
+    padding: 0px;
+    margin: 0px;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.image{
+    width: 60%;
+    padding-block: 1rem;
+    
 }
 
 .wrapper{
-    max-width: 1440px;
-    width: 80%;
+    width: fit-content;
+    max-width: 1440;
     margin-inline: auto;
+    border: 2px red solid;
 }
 
 .card-grid{
     display: grid;
     gap: 1rem;
-    /* max-width: 350px; */
-    margin-inline: auto;
-    /* align-items: center;
-    justify-content: center; */
+    background-color: var(--background-color);
     grid-template-areas: 
     "one"
     "two"
@@ -55,120 +76,86 @@ img {
     "five"
     "six"
     "seven"
-    "eight"
+    "eight";
 }
 
 .card{
+    max-width: 350px;
+    border: 1px orange solid;
+    overflow: clip;
+    border-radius: 10px;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    padding: 1rem;
-    border: 2px solid black;
-    border-radius: 10px;
-    /* max-width:fit-content; */
-}
-.card > * {
-    flex: 1 ;
 }
 
 .card:nth-child(1){
+    grid-area: one;
     background-color: var(--color-purple-500);
     color: var(--color-white);
     align-items: center;
-    grid-area: one;
-    align-items: center;
-    justify-content: center; 
-    &  img{
-        width: 40%;
-    }
 }
 
 .card:nth-child(2){
-    background-color: var(--color-white);
-    color:var(--color-black);
     grid-area: two;
-    &  img{
-        width: 95%;
+    background-color: var(--color-white);
+}
+
+.card:nth-child(3){
+    grid-area: three;
+    background-color: var(--color-yellow-500);
+    & img {
+        margin-block-end: -45px;
+    }    
+}
+
+.card:nth-child(4){
+    grid-area: four;
+    background-color: var(--color-purple-100);
+    align-items: center;
+    & * {
+        text-align: center;
+    }
+}
+
+.card:nth-child(5){
+    grid-area: five;
+    background-color: var(--color-purple-500);
+    color: var(--color-white);
+    align-items: center;
+    & * {
+        text-align: center;
+    }
+    & .image{
         order: -1;
     }
 }
 
-.card:nth-child(3){
-    background-color: var(--color-yellow-500);
-    color:var(--color-black);
-    grid-area: three;
-    & > img{
-        width: 80%;
-        margin-block-end: -55px;
-        overflow: clip;
-    }
-}
-
-.card:nth-child(4){
-    background-color: var(--color-purple-100);
-    color:var(--color-black);
-    grid-area: four;
-}
-
-.card:nth-child(5){
-    background-color: var(--color-purple-500);
-    color:var(--color-white);
-    grid-area: five;
-}
-
-.card:nth-child(6) h2{
-    text-align: center;
-    background-color: var(--color-white);
+.card:nth-child(6){
     grid-area: six;
+    background-color: var(--color-white);
 }
 
 .card:nth-child(7){
-    background-color: var(--color-yellow-100);
-    color:var(--color-black);
     grid-area: seven;
+    background-color: var(--color-yellow-100);
 }
 
 .card:nth-child(8){
-    background-color: var(--color-yellow-500);
-    color:var(--color-black);
     grid-area: eight;
+    background-color: var(--color-yellow-500);
 }
-
 
 .important-color{
     color: var(--important-color);
 }
 
 .emphasis{
-    color: var(--emphasis-color);
+    color: var(--color-purple-500);
     font-style: italic;
 }
 
-.main-heading{
-    font-size: var(--h1-font-size);
-    text-align: center;
-}
-
-.card-heading{
-    font-size: var(--h2-font-size);
-}
-
-.large-font{
-    font-size: var(--h1-font-size);
-}
-
-@media screen and (width > 900px){
-    .card-grid{
-        grid-template-areas: 
-        "seven one one four"
-        "seven two three four"
-        "eight two three four"
-        "eight six five five" ;
-    }
-    .card:nth-child(5){
-        grid-template-columns: 1fr 1fr;
-    }
-    .card:nth-child(5) > *{
-        border: 2px red solid;
-    }
+.normal-font{
+    font-size: var(--paragraph-font-size);
+    font-weight: normal;
 }
