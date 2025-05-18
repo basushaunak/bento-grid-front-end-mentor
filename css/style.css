@@ -1,0 +1,165 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-purple-100: hsl(254, 88%, 90%);
+    --color-purple-500: hsl(256, 67%, 59%);
+    --color-yellow-100: hsl(31, 66%, 93%);
+    --color-yellow-500: hsl(39, 100%, 71%);
+    --important-color: hsl(39, 100%, 71%);
+    --emphasis-color: hsl(256, 67%, 59%);
+
+    --color-white: hsl(0, 0%, 100%);
+    --color-black: hsl(0, 0%, 7%);
+
+    --font-family: "DM Sans", sans-serif;
+    --paragraph-font-size: 1.125rem;
+    --h1-font-size: 3rem;
+    --h2-font-size: 2rem;
+
+    --image-width: 100%;
+
+}
+
+html{
+    font-family: var(--font-family);
+    font-size: var(--paragraph-font-size);
+}
+.wrapper{
+    max-width: 1440px;
+    width: 80%;
+    margin-inline: auto;
+}
+
+.card-grid{
+    display: grid;
+    gap: 1rem;
+    max-width: 350px;
+    margin-inline: auto;
+    /* align-items: center;
+    justify-content: center; */
+    grid-template-areas: 
+    "one"
+    "two"
+    "three"
+    "four"
+    "five"
+    "six"
+    "seven"
+    "eight"
+}
+
+.card{
+    display: flex;
+    gap: 0.25rem;
+    padding: 1rem;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 10px;
+    /* align-items: center;
+    justify-content: center; */
+    /* max-width:fit-content; */
+}
+.card > * {
+    flex: 1 ;
+}
+
+.card:nth-child(1){
+    background-color: var(--color-purple-500);
+    color: var(--color-white);
+    align-items: center;
+    grid-area: one;
+}
+
+.card:nth-child(2){
+    background-color: var(--color-white);
+    color:var(--color-black);
+    grid-area: two;
+}
+
+.card:nth-child(3){
+    background-color: var(--color-yellow-500);
+    color:var(--color-black);
+    grid-area: three;
+}
+
+.card:nth-child(4){
+    background-color: var(--color-purple-100);
+    color:var(--color-black);
+    grid-area: four;
+}
+
+.card:nth-child(5){
+    background-color: var(--color-purple-500);
+    color:var(--color-white);
+    grid-area: five;
+}
+
+.card:nth-child(6) h2{
+    text-align: center;
+    background-color: var(--color-white);
+    grid-area: six;
+}
+
+.card:nth-child(7){
+    background-color: var(--color-yellow-100);
+    color:var(--color-black);
+    grid-area: seven;
+}
+
+.card:nth-child(8){
+    background-color: var(--color-yellow-500);
+    color:var(--color-black);
+    grid-area: eight;
+}
+
+
+img {
+    padding: 0;
+    margin: 0;
+    max-width: var(--image-width);
+    display: block;
+    padding: 0.5rem 1rem;
+}
+
+
+.important-color{
+    color: var(--important-color);
+}
+
+.emphasis{
+    color: var(--emphasis-color);
+    font-style: italic;
+}
+
+.main-heading{
+    font-size: var(--h1-font-size);
+    text-align: center;
+}
+
+.card-heading{
+    font-size: var(--h2-font-size);
+}
+
+.large-font{
+    font-size: var(--h1-font-size);
+}
+
+@media screen and (width > 900px){
+    .card-grid{
+        grid-template-areas: 
+        "seven one one four"
+        "seven two three four"
+        "eight two three four"
+        "eight six five five" ;
+    }
+    .card:nth-child(5){
+        flex-direction: row;
+    }
+    .card:nth-child(5) > *{
+        flex: 1;
+    }
+}
